@@ -1,0 +1,8 @@
+<h1> Subscribe to Slack </h1>
+
+<%= form_for (@slackbot) do |f| %>
+	<%= f.label :authenticity_token %>
+	<%= f.text_field :authenticity_token %>
+	<%= f.hidden_field :service_id, :value => Service.find_by(name: "Slack").id %>
+	<%= f.submit "Subscribe to Slack" %>
+<% end %>

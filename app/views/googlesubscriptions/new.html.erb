@@ -1,0 +1,20 @@
+<h1> Add a new Google drive folder subscription for your <%= @job.position.downcase %>! </h1>
+
+<% current_user.google_oauths.each do |s| %>
+	<%= s.username %>
+	<br>
+	<% s.gfolders.each do |x| %>
+		<%= x.name %>
+
+		<%if Googlesubscription.find_by(job_id: @job.id, gfolder_id: x.id) == nil%>
+			<%= form_for (@googlesub) do |f| %>
+				<%= f.hidden_field :gfolder_id, :value => x.id %>
+				<%= f.hidden_field :job_id, :value =>  @job.id %>
+				<%= f.submit "Add" %>
+			<%end%>
+		<%else%>
+			<p>Added</p>
+		<%end%>
+		<br>
+	<%end%>ff
+<%end%>

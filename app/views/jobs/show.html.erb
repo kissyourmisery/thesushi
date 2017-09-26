@@ -1,0 +1,14 @@
+<h1> Subscription options for your <%=@job.position.downcase%> </h1>
+
+<% @services.each do |s| %>
+	<%= s.name %>
+	<% if s.name == "Slack" %>
+		<%= link_to "Add", new_job_slacksubscription_path(job_id: @job.id) %>
+		<br>
+	<% elsif s.name == "Trello" %>
+		<%= link_to "Add", new_job_trellosubscription_path(job_id: @job.id) %>
+		<br>
+	<% elsif s.name == "Gdrive" %>
+		<%= link_to "Add", new_job_googlesubscription_path(job_id: @job.id) %>
+	<% end %>
+<% end %>

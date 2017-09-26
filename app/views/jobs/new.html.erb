@@ -1,0 +1,8 @@
+<h1> Add a new job! </h1>
+
+<%= form_for (@job) do |f| %>
+	<%= f.label :position %>
+	<%= f.text_field :position %>
+	<%= f.hidden_field :user_id, :value => current_user.id %>
+	<%= f.submit "Next" %>
+<% end %> 

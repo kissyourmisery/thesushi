@@ -1,0 +1,30 @@
+<h1> Subscribe to services now! </h1>
+
+<% @services.each do |s| %>
+	Name: <%= s.name %>
+	<br>
+	What it does: <%= s.description %>
+	<br>
+	<% if s.name == "Slack" %>
+		Slack teams added: <%= @slackbot_count %>
+		<br>
+		<%= link_to "Subscribe", new_slackbot_path %>		
+	
+		<br>
+		<br>
+		<br>
+	<% elsif s.name == "Trello" %>
+		Trello accounts added: <%= @trellobot_count %>
+		<br>
+		<%= link_to "Subscribe", new_trellobot_path %>
+
+		<br>
+		<br>
+		<br>
+	<% elsif s.name == "Gdrive" %>
+		Google accounts added: <%= @google_oauth_count %>
+		<br>
+		<%= link_to "Subscribe", new_google_oauth_path %>
+
+	<% end %>
+<% end %>

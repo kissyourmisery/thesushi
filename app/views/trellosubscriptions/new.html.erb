@@ -1,0 +1,18 @@
+<h1> Add a new Trello subscription for your <%= @job.position.downcase %>! </h1>
+
+<% current_user.trellobots.each do |s| %>
+	<% s.trelloteams.each do |x| %>
+		<%= x.name %>
+
+		<%if Trellosubscription.find_by(job_id: @job.id, trelloteam_id: x.id) == nil%>
+			<%= form_for (@trellosub) do |f| %>
+				<%= f.hidden_field :trelloteam_id, :value => x.id %>
+				<%= f.hidden_field :job_id, :value =>  @job.id %>
+				<%= f.submit "Add" %>
+			<%end%>
+		<%else%>
+			<p>Added</p>
+		<%end%>
+		<br>
+	<%end%>
+<%end%>

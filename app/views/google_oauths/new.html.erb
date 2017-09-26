@@ -1,0 +1,7 @@
+<h1> Subscribe to Google Drive! </h1>
+
+<%= form_for(@oauth, url: "/gdrive_files", method: "get") do |f| %>
+	<%= f.label "Your Google Username" %>
+	<%= f.text_field :username %>
+	<%= f.submit "Connect to a Google Account" %>
+<% end %>

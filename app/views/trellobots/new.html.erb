@@ -1,0 +1,15 @@
+<h1> Subscribe to Trello </h1>
+
+<%= form_for (@trellobot) do |f| %>
+	<%= f.label "Application key" %>
+	<%= f.text_field :authenticity_key %>
+	<br>
+	<%= f.label "User token" %>
+	<%= f.text_field :authenticity_token %>
+	<br>
+	<%= f.label :username %>
+	<%= f.text_field :username %>
+	<br>
+	<%= f.hidden_field :service_id, :value => Service.find_by(name: "Trello").id %>
+	<%= f.submit "Subscribe to Trello" %>
+<% end %>

@@ -1,0 +1,24 @@
+<h1> Add a new Slack subscription for your <%= @job.position.downcase %>! </h1>
+
+<% current_user.slackbots.each do |s| %>
+	<%= s.name %>
+	<br>
+	<% s.slackchannels.each do |x| %>
+		<%= x.name %>
+
+		<%if Slacksubscription.find_by(job_id: @job.id, slackchannel_id: x.id) == nil%>
+			<%= form_for (@slacksub) do |f| %>
+				<%= f.hidden_field :slackchannel_id, :value => x.id %>
+				<%= f.hidden_field :job_id, :value =>  @job.id %>
+				<%= f.submit "Add" %>
+			<%end%>
+		<%else%>
+			<p>Added</p>
+		<%end%>
+		<br>
+	<%end%>
+<%end%>
+
+
+
+

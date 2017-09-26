@@ -1,0 +1,13 @@
+<h1>Hello, <%= current_user.email %></h1>
+<% @employees.each do |e| %>
+	<%= e.name %>  <%= link_to 'Show', e %>
+	<br>
+<%end%>
+<br>
+<%= link_to "Subscribe to our services", services_path %>
+<br>
+<%= link_to "Add a new job", new_job_path %>
+<br>
+<%= link_to "Add new employee", new_employee_path %>
+
+<%= link_to "testing google drive", gdrive_files_path %>
