@@ -3,7 +3,7 @@ SUSHI is an HR management tool that allows small business owners to easily add/r
 
 How it works:
 1. Sign up as a user
-2. Click "+ Service" and connect to your Slack and Trello accounts via authenticity token 
+2. Click "+ Service" and connect to your Slack and Trello accounts via authenticity token (Make sure you are the owner of the Slack channels and Trello boards so that you have permission to add in new members via API!)
 3. Click "+ Role" and it can be anything from Digital Marketer to Developer. 
 4. Choose the Slack and Trello channels/boards you want employees of this role to enroll in
 5. Go back to homepage and click "+Member" and select the role of this employee
